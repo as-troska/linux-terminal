@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Kurs i Linux-terminalen  - Kapittel 3&colon; Filsystemet</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <h1 id="kurs-i-linux-terminalen----kapittel-3-filsystemet">Kurs i Linux-terminalen  - Kapittel 3: Filsystemet</h1>
+<p>I dette kapittelet skal vi se på hvordan filsystemet i Linux er bygget opp. Vi skal se på hvordan filer og mapper er organisert, og hvordan vi kan navigere i filsystemet. Vi har foreløpig holdt oss i hjemmemappen vår, men linux-filsystemet er mye større enn som så. La oss se på hvordan det er bygget opp.</p>
+<h2 id="filsystemet-i-linux">Filsystemet i Linux</h2>
+<p>Roten i filsystemet i Linux er mappen <code>/</code>. Denne mappen inneholder alt annet i filsystemet. Under roten finner vi flere mapper og filer. Noen av de viktigste mappene er:</p>
+<ul>
+<li><code>/bin</code>: Inneholder kjørbare filer som er nødvendige for å starte systemet.</li>
+<li><code>/boot</code>: Inneholder filer som er nødvendige for oppstart av systemet.</li>
+<li><code>/etc</code>: Inneholder konfigurasjonsfiler for systemet.</li>
+<li><code>/home</code>: Inneholder hjemmemappene til brukerne.</li>
+<li><code>/lib</code>: Inneholder biblioteker som er nødvendige for kjøring av programmer.</li>
+<li><code>/media</code>: Inneholder monteringspunkter for flyttbare medier som USB-minnepinner og CD-er.</li>
+<li><code>/mnt</code>: Inneholder midlertidige monteringspunkter.</li>
+<li><code>/opt</code>: Inneholder ekstra programvare som ikke er en del av standardinstallasjonen.</li>
+<li><code>/root</code>: Hjemmemappen til superbrukeren <code>root</code>.</li>
+<li><code>/sbin</code>: Inneholder kjørbare filer som er nødvendige for å starte systemet.</li>
+<li><code>/tmp</code>: Inneholder midlertidige filer.</li>
+<li><code>/usr</code>: Inneholder programfiler og biblioteker.</li>
+<li><code>/var</code>: Inneholder variabel data som loggfiler og e-post.</li>
+</ul>
+<blockquote>
+<p><strong>Variasjoner:</strong></p>
+<ul>
+<li>Det finnes flere varianter av Linux-filsystemet. Denne oversikten er basert på filsystemet som brukes i Ubuntu. Andre distribusjoner kan ha en litt annen oppbygning. Felles for de fleste er likevel at de har en rotmappe <code>/</code> og en hjemmemappe <code>/home</code>.</li>
+</ul>
+</blockquote>
+<h2 id="navigere-i-filsystemet">Navigere i filsystemet</h2>
+<p>Som vi så i kapittel 1, bruker vi kommandoene <code>ls</code>, <code>cd</code> og <code>pwd</code> for å navigere i filsystemet. Vi kan bruke disse kommandoene til å navigere i hele filsystemet, ikke bare i hjemmemappen vår. For å gå til rotmappen, skriver vi <code>cd /</code>. For å gå tilbake til hjemmemappen. Vi kan også bruke kommandoen <code>cd ..</code> for å gå opp en mappe, men denne vil ikke gjøre noe om du alt står i rotmappen. Skal vi gå fra hjemmemappen til rotmappen, kan vi enten skrive <code>cd /</code>, eller <code>cd ..</code> to ganger.</p>
+<h3 id="oppgave">Oppgave</h3>
+<ol>
+<li>Naviger til rotmappen.</li>
+<li>Bruk <code>ls</code> til å se innholdet i rotmappen.</li>
+<li>Naviger tilbake til hjemmemappen din.</li>
+</ol>
+<h2 id="var-mappen">Var-mappen</h2>
+<p>Det er ikke nødvendigvis så mye spennende å se for en vanlig bruker i rotmappen. La oss se på en annen mappe: <code>/var</code>. Denne mappen inneholder variabel data som loggfiler og e-post. Filene med mest innhold i denne mappen er ofte loggfiler. Den fullstendige banen til loggfiler for systemet er <code>/var/log</code>.</p>
+<h3 id="oppgave-1">Oppgave</h3>
+<ol>
+<li>Naviger til mappen <code>/var</code>.</li>
+<li>Bruk <code>ls</code> til å se innholdet i mappen.</li>
+<li>Naviger til mappen som har loggfilene til systemet.</li>
+<li>Bruk kommandoene fra kapittel 2 til å vise innholdet i noen av loggfilene.</li>
+</ol>
+<h2 id="sudo-kommandoen">sudo-kommandoen</h2>
+<p>Noen ganger trenger vi å kjøre kommandoer som superbruker. Når du sjekket innholdet i loggmappen i forrige oppgave, fikk du f.eks kanskje opp meldingen &quot;Permission denied&quot; på noen av filene. For å kjøre en kommando som superbruker, skriver vi <code>sudo</code> foran kommandoen. Vi kan for eksempel skrive <code>sudo cat btmp</code> for å vise innholdet i loggfilen <code>btmp</code>, selv om vi ikke har tilgang til den som vanlig bruker.</p>
+<h3 id="oppgave-2">Oppgave</h3>
+<ol>
+<li>Bruk <code>sudo</code> til å vise innholdet i loggfilen <code>boot.log</code>.</li>
+</ol>
+<blockquote>
+<p><strong>Hint:</strong> Du kan bruke piltastene til å bla i tidligere kommandoer. Husk at du kan bruke tabulatortasten for å autfullføre filnavn.</p>
+</blockquote>
+<blockquote>
+<p><strong>Obs:</strong> Vær forsiktig med <code>sudo</code>-kommandoen. Som superbruker har du tilgang til alt på systemet, og kan gjøre store skader om du ikke er forsiktig. Selv om du kan bruke den til å f.eks vise innholdet i loggfiler, er det lurt å tenke seg om to ganger før du bruker den til andre ting, særlig om du ikke vet hva kommandoen du kjører gjør.</p>
+</blockquote>
+<h2 id="oppsummering">Oppsummering</h2>
+<p>I dette kapittelet har vi sett på hvordan filsystemet i Linux er bygget opp. Vi har sett på noen av de viktigste mappene i filsystemet, og hvordan vi kan navigere i filsystemet. Vi har også sett på hvordan vi kan bruke <code>sudo</code>-kommandoen for å kjøre kommandoer som superbruker.</p>
+<p>I neste leksjon ser vi på hvordan vi kan installere og fjerne programvare i Linux.</p>
+
+            
+            
+        </body>
+        </html>

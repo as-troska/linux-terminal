@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Kurs i Linux-terminalen  - Kapittel 1&colon; Grunnleggende filbehandling</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <h1 id="kurs-i-linux-terminalen----kapittel-1-grunnleggende-filbehandling">Kurs i Linux-terminalen  - Kapittel 1: Grunnleggende filbehandling</h1>
+<p>Linux-terminalen kan brukes til mye. I disse første øvelsene, skal vi bruke den til å utforske filsystemet og utføre enkle oppgaver.</p>
+<h2 id="navigere-i-filsystemet">Navigere i filsystemet</h2>
+<p>For å navigere i filsystemet, bruker vi kommandoene <code>ls</code>, <code>cd</code> og <code>pwd</code>.</p>
+<p><code>ls</code> viser innholdet i mappen du er i.
+<code>cd</code> tar deg til en annen mappe.
+<code>pwd</code> viser hvor i filsystemet du er.</p>
+<p>For å navigere i filsystemet, bruker vi disse kommandoene sammen med filnavn og stier.</p>
+<h3 id="oppgave">Oppgave</h3>
+<ol>
+<li>Åpne terminalen.</li>
+<li>Bruk <code>ls</code> til å se innholdet i mappen du er i.</li>
+<li>Bruk <code>cd</code> til å gå til en annen mappe.</li>
+<li>Bruk <code>pwd</code> til å se hvor du er.</li>
+<li>Gå tilbake til mappen du startet i.</li>
+</ol>
+<h2 id="lage-filer">Lage filer</h2>
+<p>Som du kanskje merket, var det ikke så mye spennende i mappen du startet i. La oss lage en fil.</p>
+<p><code>touch</code> lager en ny fil. For å lage filen moskus.txt, skriver du <code>touch moskus.txt</code>.</p>
+<h3 id="oppgave-1">Oppgave</h3>
+<ol>
+<li>Lag en ny fil som du kaller <code>minfil.txt</code>.</li>
+<li>Bruk <code>ls</code> til å se at filen ble laget.</li>
+</ol>
+<blockquote>
+<p><strong>Litt om filnavn:</strong></p>
+<ul>
+<li>Filnavn kan være på opptil 255 tegn.</li>
+<li>Filnavn kan inneholde bokstaver, tall, punktum og bindestrek.</li>
+<li>Filnavn er case-sensitivt. Det betyr at <code>moskus.txt</code> og <code>Moskus.txt</code> er to forskjellige filer.</li>
+<li>Filnavn kan ikke inneholde spesialtegn som <code>?</code>, <code>*</code>, <code>!</code>, <code>&amp;</code>, <code>#</code>, <code>@</code>, <code>~</code>, <code>|</code>, <code>&gt;</code>, <code>&lt;</code>, <code>&quot;</code>, <code>/</code> og mellomrom.</li>
+<li>Filnavn kan ikke starte med punktum.</li>
+<li>Enda en gang: Filnavn er case-sensitivt og <strong>kan ikke innholde mellomrom!</strong></li>
+</ul>
+</blockquote>
+<h2 id="slette-filer">Slette filer</h2>
+<p>Når vi først har laget en fil, kan vi like gjerne slette den også. For å slette filer bruker vi kommandoen <code>rm</code>. For å slette filen <code>moskus.txt</code>, skriver du <code>rm moskus.txt</code>.</p>
+<h3 id="oppgave-2">Oppgave</h3>
+<ol>
+<li>Lag enda en fil: <code>minfil2.txt</code>.</li>
+<li>Slett filen <code>minfil.txt</code> med <code>rm</code>.</li>
+</ol>
+<h2 id="lage-mapper">Lage mapper</h2>
+<p>Vi kan også lage mapper. For å lage en mappe, bruker vi kommandoen <code>mkdir</code>. For å lage mappen <code>bilder</code>, skriver du <code>mkdir bilder</code>.</p>
+<h3 id="oppgave-3">Oppgave</h3>
+<ol>
+<li>Lag en mappe som du kaller <code>bilder</code>.</li>
+<li>Bruk <code>ls</code> til å se at mappen ble laget.</li>
+<li>Naviger til mappen <code>bilder</code>.</li>
+<li>Lag filen <code>slapp_moskus.jpg</code>.</li>
+<li>Gå tilbake til mappen du startet i.</li>
+</ol>
+<blockquote>
+<p><strong>Hint:</strong></p>
+<ul>
+<li>For å navigere til mappen <code>bilder</code>, skriver du <code>cd bilder</code>.</li>
+<li>For å gå tilbake til forrige mappe, skriver du <code>cd ..</code></li>
+</ul>
+</blockquote>
+<h2 id="flytte-filer">Flytte filer</h2>
+<p>Vi kan også flytte filer. For å flytte en fil fra en mappe til en annen, bruker vi kommandoen <code>mv</code>. For å flytte filen <code>moskus.txt</code> til mappen <code>bilder</code>, skriver du <code>mv moskus.txt bilder</code>.</p>
+<h3 id="oppgave-4">Oppgave</h3>
+<ol>
+<li>Lag en ny fil som du kaller <code>glad_moskus.jpg</code>.</li>
+<li>Flytt filen <code>glad_moskus.jpg</code> til mappen <code>bilder</code>.</li>
+<li>Naviger til mappen <code>bilder</code> og bruk <code>ls</code> for å se at filen ble flyttet.</li>
+<li>Gå tilbake til mappen du startet i.</li>
+</ol>
+<blockquote>
+<p><strong>Litt om stier:</strong></p>
+<ul>
+<li>En relativ sti starter fra der du er i filsystemet. Hvis du er i hjemmemappen din <code>/home/brukernavn</code>, er stien til mappen <code>bilder</code> bare <code>bilder</code>.</li>
+<li>En absolutt sti starter fra rotmappen. Den absolutte stien til mappen <code>bilder</code> er <code>/home/brukernavn/bilder</code>, og kan brukes uansett hvor du er i filsystemet.</li>
+</ul>
+</blockquote>
+<h2 id="kopiere-filer">Kopiere filer</h2>
+<p>Vi kan også kopiere filer. For å kopiere en fil, bruker vi kommandoen <code>cp</code>. For å kopiere filen <code>moskus.txt</code> til filen <code>moskus2.txt</code>, skriver du <code>cp moskus.txt moskus2.txt</code>.</p>
+<h3 id="oppgave-5">Oppgave</h3>
+<ol>
+<li>Kopier filen <code>glad_moskus.jpg</code> til filen <code>glad_moskus2.jpg</code>.</li>
+<li>Bruk <code>ls</code> for å se at filen ble kopiert.</li>
+</ol>
+<blockquote>
+<p><strong>Hint:</strong>
+Dersom du står i mappen <code>bilder</code>, kan du kopiere filen <code>glad_moskus.jpg</code> til filen <code>glad_moskus2.jpg</code> ved å skrive <code>cp glad_moskus.jpg glad_moskus2.jpg</code>. Dersom du står i en annen mappe, må du skrive hele stien til filene. Merk at du kan bruke tabulatortasten for å autfullføre filnavn og stier.</p>
+</blockquote>
+<h2 id="slette-mapper">Slette mapper</h2>
+<p>For å slette mapper, bruker vi kommandoen <code>rmdir</code>. For å slette mappen <code>bilder</code>, skriver du <code>rmdir bilder</code>. Der er en liten hake med <code>rmdir</code>, og det er at mappen må være tom for at den skal kunne slettes. Hvis mappen ikke er tom, må du bruke <code>rm -r</code> for å slette mappen og alt innholdet i den. Merk at <code>rm -r</code> sletter alt uten å spørre om bekreftelse, så vær forsiktig med denne kommandoen.</p>
+<h3 id="oppgave-6">Oppgave</h3>
+<ol>
+<li>Slett mappen <code>bilder</code> med <code>rmdir</code>.</li>
+<li>Lag mappen <code>bilder</code> på nytt.</li>
+<li>Naviger til bilder og sjekk at mappen nå er tom.</li>
+</ol>
+<h2 id="oppsummering">Oppsummering</h2>
+<p>I denne øvelsen har vi lært å navigere i filsystemet, lage filer og mapper, slette filer og mapper, flytte filer og kopiere filer. Dette er grunnleggende ferdigheter som er nyttige å kunne når du jobber i terminalen.</p>
+<p>Neste del av kurset handler om å jobbe med tekstfiler.</p>
+
+            
+            
+        </body>
+        </html>
