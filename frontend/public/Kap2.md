@@ -1,4 +1,4 @@
-# Kurs i Liunx-terminalen - Kapittel 2: Tekstbehandling
+# Kapittel 2: Tekstbehandling
 
 I dette kapittelet skal vi se på hvordan vi kan jobbe med tekstfiler i terminalen. Vi skal se på hvordan vi kan vise innholdet i filer, redigere filer og søke i filer.
 

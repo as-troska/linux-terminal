@@ -1,4 +1,4 @@
-# Kurs i Linux-terminalen  - Kapittel 4: Pakkehåndtering
+# Kapittel 4: Pakkehåndtering
 
 I dette kapittelet skal vi se på hvordan vi kan installere og fjerne programvare i Linux. Vi skal se på hvordan vi kan bruke pakkehåndteringsverktøyene `apt` og `dpkg` for å installere og fjerne programvare. Vi skal også se på hvordan vi kan oppdatere systemet vårt. 
 

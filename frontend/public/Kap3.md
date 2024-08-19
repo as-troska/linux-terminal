@@ -1,4 +1,4 @@
-# Kurs i Linux-terminalen  - Kapittel 3: Filsystemet
+# Kapittel 3: Filsystemet
 
 I dette kapittelet skal vi se på hvordan filsystemet i Linux er bygget opp. Vi skal se på hvordan filer og mapper er organisert, og hvordan vi kan navigere i filsystemet. Vi har foreløpig holdt oss i hjemmemappen vår, men linux-filsystemet er mye større enn som så. La oss se på hvordan det er bygget opp.
 

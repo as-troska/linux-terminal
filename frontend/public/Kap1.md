@@ -1,4 +1,4 @@
-# Kurs i Linux-terminalen  - Kapittel 1: Grunnleggende filbehandling
+# Kapittel 1: Grunnleggende filbehandling
 
 Linux-terminalen kan brukes til mye. I disse første øvelsene, skal vi bruke den til å utforske filsystemet og utføre enkle oppgaver. 
 
