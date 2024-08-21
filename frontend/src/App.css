@@ -47,6 +47,7 @@ nav li:hover {
 main {
     padding: 20px;
     color: white;
+    margin-bottom: 30px;
 }
 
 blockquote {
@@ -99,4 +100,51 @@ header.light-mode {
 header.hacker-mode {
     background-color: #000000;
     color: #00ff00;
+}
+
+footer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+  }
+  
+
+  footer div {
+    display: inline-block;
+    flex: 1;
+    text-align: center;
+    margin: 0; 
+    height: 100%;
+    line-height: 60px; 
+    transition: background-color 0.3s;
+  }
+
+  nav ul li, footer div {
+    cursor: pointer;
+  }
+  
+  nav ul li:hover, footer div:hover {
+    background-color: #ddd;
+  }
+
+  @media (max-width: 600px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        width: 100%;
+        text-align: center;
+    }
+
+    nav {
+        height: auto;
+    }
 }
