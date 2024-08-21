@@ -6,7 +6,8 @@
   "scripts": {
     "start": "vite",
     "preview": "vite preview",
-    "build": "vite build"
+    "build": "vite build",
+    "serve": "surge dist/"
   },
   "dependencies": {
     "react": "^18.2.0",

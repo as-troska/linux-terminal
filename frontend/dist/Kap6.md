@@ -41,7 +41,7 @@ user www-data;
 
 Dette sier oss at nginx kjører som brukeren `www-data`. Dette er en standard bruker som brukes av mange webservere for å kjøre nettsider. Denne brukeren ble opprettet når vi installerte nginx, og den har begrensede rettigheter på systemet. Det den har lov til å gjøre er å lese filer fra nettsiden og vise dem i nettleseren, men det kan den ikke gjøre om den ikke har rettighetene til å lese filene.
 
-`Hint: Du kan bruke kommandoen `ls -l` for å se hvilke rettigheter en fil har. For å vise rettighetene til en mappe, kan du bruke `ls -ld` og skrive mappenavnet etterpå.`
+>Hint: Du kan bruke kommandoen `ls -l` for å se hvilke rettigheter en fil har. For å vise rettighetene til en mappe, kan du bruke `ls -ld` og skrive mappenavnet etterpå.
 
 I tillegg til nginx.conf, er ligger de viktigste konfigurasjonsfilene i mappen `/etc/nginx/sites-enabled`. Her finner du filer som definerer hvordan nettsider skal vises. En typisk konfigurasjonsfil for en nettside ser ut som noe som dette:
 

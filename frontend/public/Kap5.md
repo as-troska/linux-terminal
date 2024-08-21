@@ -16,7 +16,7 @@ sudo adduser brukernavn
 
 Du vil nå bli bedt om å skrive inn et passord for den nye brukeren. Når du har skrevet inn passordet, vil brukeren bli opprettet. Du kan nå logge inn som den nye brukeren ved å skrive `su brukernavn` i terminalen.
 
-`Hint: Hvis du vil bytte til root-brukeren, kan du skrive sudo su i terminalen. Altså uten brukernavn etter su.`
+>Hint: Hvis du vil bytte til root-brukeren, kan du skrive sudo su i terminalen. Altså uten brukernavn etter su.
 
 ### Slette en bruker
 
@@ -34,9 +34,9 @@ Du vil nå bli bedt om å bekrefte at du vil slette brukeren. Når du har bekref
 3) Gå til hjemmemappen til `testbruker` og opprett en ny fil med navnet `testfil.txt`.
 4) Logg ut av `testbruker` og logg inn som din egen bruker.
 
-`Hint: for å logge ut av en bruker, kan du skrive exit i terminalen.`
+>Hint: for å logge ut av en bruker, kan du skrive exit i terminalen.
 
-`Hint: for å gå til hjemmemappen til en bruker, kan du skrive cd ~brukernavn i terminalen, eller bare cd ~ for å gå til den innloggede brukerens hjemmemappe.`
+>Hint: for å gå til hjemmemappen til en bruker, kan du skrive cd ~brukernavn i terminalen, eller bare cd ~ for å gå til den innloggede brukerens hjemmemappe.
 
 ## Rettigheter
 
@@ -92,7 +92,7 @@ For å legge til en bruker i en gruppe, kan du bruke kommandoen `usermod`. For �
 sudo usermod -aG gruppenavn brukernavn
 ```
 
-`Hint: Vi har nevnt grupper, men kommer ikke til å gå veldig i detalj på det her. Det det viktigste dette ofte brukes til er å ha en gruppe for alle brukere som har tilgang til å bruke sudo-kommandoen. Dette er for å ha bedre kontroll over hvem som har tilgang til å utføre administrative oppgaver.`
+>Hint: Vi har nevnt grupper, men kommer ikke til å gå veldig i detalj på det her. Det det viktigste dette ofte brukes til er å ha en gruppe for alle brukere som har tilgang til å bruke sudo-kommandoen. Dette er for å ha bedre kontroll over hvem som har tilgang til å utføre administrative oppgaver.
 
 ## Oppgave
 1) Opprett en ny gruppe med navnet `testgruppe`.
